@@ -32,7 +32,7 @@ jobs:
 
       - name: Definir etiqueta de imagen
         id: meta
-        run: echo "tag=ghcr.io/${{ github.repository }}:${{ github.sha }}" >> "$GITHUB_OUTPUT"
+        run: echo "tag=ghcr.io/${{ github.repository_owner }}/ci-cd-demo:${{ github.sha }}" >> "$GITHUB_OUTPUT"
 
       - name: Construir y publicar imagen Docker
         uses: docker/build-push-action@v5
@@ -41,7 +41,7 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tag }}
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository_owner }}/ci-cd-demo:latest
 
   deploy:
     name: Desplegar a producción
