@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ mensaje: 'API de demostracion CI/CD - Programacion IV - UNA' });
+  res.json({ mensaje: 'API de demostracion CI/CD - Programacion IV - Universidad Latina de Costa Rica' });
 });
 
 app.get('/health', (req, res) => {
@@ -40,7 +40,7 @@ app.get('/primo/:n', (req, res) => {
   res.json({ n: Number(req.params.n), esPrimo: esPrimo(Number(req.params.n)) });
 });
 
-// Solo iniciar el servidor si el archivo se ejecuta directamente (no en tests)
+
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
